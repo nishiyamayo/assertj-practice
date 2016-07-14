@@ -1,0 +1,38 @@
+
+bin/
+build/
+dist/
+logs/
+target/
+tmp/
+temp/
+generated/
+
+.gradle
+.history
+
+.DS_Store
+Thumbs.db
+
+*.class
+*.war
+*.ear
+*.jar
+*.zip
+
+# backup files
+*~
+*.swp
+
+# eclipse
+.classpath
+.project
+.settings
+.springBeans
+
+# IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws
+*.ids
