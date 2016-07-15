@@ -1,5 +1,6 @@
 package assertj_practice.service;
 
+import assertj_practice.model.CustomHoge;
 import assertj_practice.model.Hoge;
 import org.junit.BeforeClass;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class AbstractTest {
 
     public static Hoge ACTUAL;
+    public static CustomHoge CUSTOM_ACTUAL;
 
     public static List<Hoge> ACTUAL_LIST = new ArrayList<>();
     public static HashMap<String, Hoge> ACTUAL_MAP = new HashMap<>();
@@ -17,6 +19,8 @@ public class AbstractTest {
     @BeforeClass
     public static void beforeTest() {
         ACTUAL = Hoge.of("hoge", 100L);
+
+        CUSTOM_ACTUAL = CustomHoge.of("choge", 10000L, ACTUAL, Hoge.of("choge", 10000L));
 
         ACTUAL_LIST.add(Hoge.of("hoge1", 1L));
         ACTUAL_LIST.add(Hoge.of("hoge2", 100L));

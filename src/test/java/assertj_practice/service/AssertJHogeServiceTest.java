@@ -99,10 +99,10 @@ public class AssertJHogeServiceTest extends AbstractTest {
         softly.assertThat(ACTUAL).as("collect name: %s", ACTUAL.getName())
             .isEqualTo(Hoge.of("hoge", 100L));
         softly.assertThat(ACTUAL).as("invalid name: %s", ACTUAL.getName())
-            .isEqualTo(Hoge.of("fuga", 100L));
+            .isEqualTo(Hoge.of("fuga", 100L));                              // 名前がおかしい
         softly.assertThat(ACTUAL_LIST)
             .extracting("name", "value")
-            .containsExactly(tuple("hoge1", 100L), tuple("hoge3", 25L));
+            .containsExactly(tuple("hoge1", 100L), tuple("hoge3", 25L));    // 要素が足りない
 
         softly.assertAll();
     }

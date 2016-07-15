@@ -6,6 +6,7 @@ logs/
 target/
 tmp/
 temp/
+gradle/wrapper/
 generated/
 
 .gradle

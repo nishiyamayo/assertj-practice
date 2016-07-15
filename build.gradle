@@ -1,21 +1,40 @@
+
+plugins {
+    id "com.github.opengl-BOBO.assertjGen" version "1.0.0"
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
 group 'assertj-practice'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
-apply plugin: 'application'
-
 sourceCompatibility = 1.8
 
-mainClassName = 'jp.co.cyberagent.nishiyama_yo.Main'
-
-repositories {
-    mavenCentral()
-}
+mainClassName = 'assertj-practice.Main'
 
 dependencies {
     compile 'org.projectlombok:lombok:1.16.8'
     testCompile 'junit:junit:4.11'
     testCompile 'org.hamcrest:hamcrest-library:1.3'
     testCompile 'org.assertj:assertj-core:3.5.1'
+}
+
+sourceSets {
+    test {
+        java {
+            srcDir 'src/test/generated'
+        }
+    }
+}
+
+assertjGen {
+    // パッケージ配下のクラスを...
+    classOrPackageNames = ['assertj_practice.model']
+
+    // outputDirの下に...
+    outputDir = 'src/test/generated/custom'
+
+    // assertjGeneratorを使ってassertクラスを作る
+    assertjGenerator = 'org.assertj:assertj-assertions-generator:2.0.0'
 }
